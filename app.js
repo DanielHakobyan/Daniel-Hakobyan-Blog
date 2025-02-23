@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(methodOverride("_method"));
 app.use(
   session({
-    secret: "slow monkey",
+    secret: process.env.SESSION_SECRET || "default_secret",
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
